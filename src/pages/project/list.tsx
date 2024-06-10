@@ -229,15 +229,17 @@ const ProjectList: React.FC = () => {
       align: "center",
       render: (value: string) =>
         value ? (
-          <img
-            src={value}
-            alt="project"
-            style={{ width: 50, height: 50, cursor: "pointer" }}
-            onClick={() => {
-              setImageSrc(value);
-              setImageModalOpen(true);
-            }}
-          />
+          <div className="flex justify-center items-center">
+            <img
+              src={value}
+              alt="project"
+              className="w-12 h-12 object-cover cursor-pointer"
+              onClick={() => {
+                setImageSrc(value);
+                setImageModalOpen(true);
+              }}
+            />
+          </div>
         ) : (
           "없음"
         ),
@@ -327,9 +329,11 @@ const ProjectList: React.FC = () => {
         open={imageModalOpen}
         onCancel={handleImageModalClose}
         footer={null}
-        centered // 모달을 화면 중앙에 배치
+        centered 
       >
-        <img src={imageSrc} alt="project enlarged" style={{ width: "100%" }} />
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img src={imageSrc} alt="project enlarged" style={{ width: "100%", maxWidth: "500px" }} />
+        </div>
       </Modal>
     </>
   );

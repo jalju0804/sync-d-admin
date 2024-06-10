@@ -185,7 +185,11 @@ const UserList: React.FC = () => {
       title: "프로필 이미지",
       dataIndex: ["user", "profileImg"],
       align: "center",
-      render: (value: string) => <img src={value} alt="profile" style={{ width: 50, height: 50 }} />,
+      render: (value: string) => (
+        <div className="flex justify-center items-center">
+          <img src={value} alt="profile" className="w-12 h-12 object-cover" />
+        </div>
+      ),
     },
   ];
 
